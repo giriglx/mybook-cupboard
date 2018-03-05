@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h4 Welcome to my world of books
+  
+
+  //- h1 Dynamic content
+
+  if error
+    p Error getting dynamic content.
+  else
+
+    p My Book cupboard has the following record counts:
+  
+    ul.list-group
+      li.list-group-item #[strong Books:] !{data.book_count}
+      li.list-group-item #[strong Copies:] !{data.book_instance_count}
+      li.list-group-item #[strong Copies available:] !{data.book_instance_available_count} 
+      li.list-group-item #[strong Authors:] !{data.author_count}
+      li.list-group-item #[strong Genres:] !{data.genre_count}

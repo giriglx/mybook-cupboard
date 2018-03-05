@@ -1,0 +1,52 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    //- meta(charset='utf-8')
+    //- meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="stylesheet", href='stylesheets/style.css')
+    //- script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    //- script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+  body
+  
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+      a.navbar-brand(href='/catalog') My Book
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarsExampleDefault.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a(href='/catalog') Home   
+            span.sr-only (current)
+
+            a(href='/catalog/books') Allbooks  
+            a(href='/catalog/authors') Allauthors           
+            a(href='/catalog/genres') Allgenres 
+            
+            a(href='/catalog/bookinstances') Allbook-instances
+          //- li.nav-item
+          //-   a.nav-link.disabled(href='#') Disabled
+          
+        
+
+    div(class='container-fluid')
+      div(class='row')
+        div(class='col-sm-2')
+          block sidebar
+          .container
+          ul.list-group(class='sidebar-nav')
+          li.list-group-item
+           a(href='/catalog/author/create') Create new author
+          li.list-group-item   
+           a(href='/catalog/genre/create') Create new genre
+          li.list-group-item   
+           a(href='/catalog/book/create') Create new book
+          li.list-group-item 
+           a(href='/catalog/bookinstance/create') Create new book instance (copy)
+                
+        div(class='col-sm-10')
+          .container
+          block content
+        
+
